@@ -1,161 +1,99 @@
 # Reinforcement Learning Unveiled: An Interactive Journey
 
-Uma plataforma de aprendizado interativa que desmistifica o Reinforcement Learning através de explicações visuais e exploração prática. O foco principal é uma visualização interativa que permite controlar o processo de aprendizado e ver como o RL funciona utilizando Q-learning.
+An interactive learning platform designed to demystify Reinforcement Learning through visual explanations and hands-on exploration. The project focuses on a dynamic visualization that allows the user to control the learning process and understand how the Q-learning algorithm works in real-time.
 
-## Sobre o Projeto
+## About the Project
 
-Este projeto foi desenvolvido para tornar o Reinforcement Learning mais acessível e compreensível através de três módulos principais:
+"Reinforcement Learning Unveiled" was created to make Reinforcement Learning (RL) concepts more accessible. The tool guides the user through a progressive learning journey, from theoretical foundations to a practical and interactive application.
 
-1. **Explicação Básica**: Introdução aos conceitos fundamentais do RL através de exemplos interativos
-2. **Teoria Formal**: Definições matemáticas rigorosas de agentes, ambientes, políticas, recompensa e o algoritmo de aprendizado (Q-Learning)
-3. **Visualização Interativa**: Ambiente prático onde você pode ajustar parâmetros, observar o agente aprender e ver os resultados em tempo real
+The main goal is to combine visual explanations with a hands-on approach, allowing anyone to manipulate the components of an RL algorithm and observe the consequences of their choices in real-time.
 
-### Objetivo Principal
+### Learning Structure
 
-Combinar explicações visuais com exploração para facilitar o entendimento de como algoritmos de RL, especificamente Q-learning, funcionam na prática.
+The system is divided into three main modules:
 
-## Funcionalidades da Visualização
+1.  **Intuitive Explanation**: A playful introduction to the fundamental concepts of RL.
+2.  **Formal Theory**: A deeper dive into the concepts, formally defining Agent, Environment, Rewards, and Policy.
+3.  **Interactive Visualization**: A practical sandbox-style environment where the user can apply and test their knowledge.
 
-### Ambiente Interativo
-- **Grid World Customizável**: Configure o tamanho do mundo, posições inicial e final, e obstáculos.
-- **Controle de Parâmetros**: Ajuste taxa de aprendizado (α), fator de desconto (γ), epsilon e decay.
-- **Visualização em Tempo Real**: Observe o agente aprendendo e tomando decisões.
+## Interactive Visualization
 
-### 🎛️ Controles de Reprodução
-- **Play/Pause**: Controle a execução da animação.
-- **Velocidades Múltiplas**: 4 níveis de velocidade de reprodução.
-- **Navegação Manual**: Vá para episódios e passos específicos clicando nos gráficos ou na barra deslizante.
-- **Controles de Episódio**: Navegue entre diferentes tentativas do agente.
+The heart of the project is a control panel that allows the user to freely experiment with an agent (styled as Pac-Man) in a Grid World environment.
 
-### Componentes Visuais!
+### Features
 
-#### Grid do Ambiente
-- Visualização do mundo onde o agente opera
-- Posições de início, objetivo e obstaculos (fantasmas) claramente marcadas
-- Acompanhamento da posição atual do agente ao longo do aprendizado
+#### Environment and Parameters
 
-<div align="center">
-  
-![ambiente](https://github.com/user-attachments/assets/20beb0a3-f356-4edb-854d-0fd5e642b025)
+* **Customizable Grid World**: Configure the environment's width and height, and add or remove obstacles (ghosts) by clicking directly on the cells.
+* **RL Parameter Control**: Adjust the learning rate (α), discount factor (γ), exploration rate (ε), and epsilon decay using interactive sliders.
 
-</div>
+#### Simulation Controls
 
-#### Sucesso ao longo dos episódios
-- Acompanha a evolução da performance do agente ao longo dos episódios.
-- Mostra como o agente melhora com o tempo.
+* **Play/Pause and Speed**: Control the animation's execution and adjust the playback speed.
+* **Episode Navigation**: Analyze the agent's behavior in specific episodes and steps.
+
+### Coordinated Visualization Panels
+
+#### 1. Training Overview
+
+* **Agent's Environment**: Follow the agent's journey, its current position, obstacles, and the goal.
+* **Success Rate Over Episodes**: A line chart showing the evolution of the agent's performance, allowing for the identification of learning patterns.
 
 <div align="center">
-  
-![sucesso](https://github.com/user-attachments/assets/ef86a183-89ac-4f87-b3db-7efbb0e0e764)
-
+  <img src="https://github.com/user-attachments/assets/ef86a183-89ac-4f87-b3db-7efbb0e0e764" alt="Success Rate" width="600"/>
 </div>
 
-#### Grid de Q-valores
-- Mostra o valor máximo de Q para cada célula
-- Representa o maior valor esperado para aquela célula em uma iteração específica
-- Mostra o melhor caminho aprendido claramente
+#### 2. Global Policy and Q-Values
+
+* **Learned Policy (Policy View)**: A grid that displays the best action for each state using arrows. A question mark (?) indicates unexplored states.
+* **Q-values Heatmap**: Visualizes the maximum expected value (V(s)) for each state, where warmer colors indicate a higher future reward.
 
 <div align="center">
-  
-![q-values-grid](https://github.com/user-attachments/assets/615fe881-e1cc-4f59-b20b-23ebf58fceb6)
-
+  <table>
+    <tr>
+      <td><img src="https://github.com/user-attachments/assets/42ba0a58-a0b6-4e13-829d-8edb8f1df322" alt="Learned Policy" width="300"/></td>
+      <td><img src="https://github.com/user-attachments/assets/615fe881-e1cc-4f59-b20b-23ebf58fceb6" alt="Q-Values Heatmap" width="300"/></td>
+    </tr>
+  </table>
 </div>
 
-#### Grid da Política Aprendida
+#### 3. Detailed Cell Analysis
 
-- Mostra a política aprendida para cada célula através de setas direcionais.
-- Células com um ponto de interrogação ("?") representam estados que não foram explorados
+By clicking on a specific cell, the view changes to a detailed analysis of that state:
+
+* **Q-Values for the Cell**: Displays the four Q-values (up, down, left, right) for the selected state.
+* **Q-Values Evolution**: A line chart that plots the evolution of the selected cell's Q-values across all episodes.
 
 <div align="center">
-  
-![politica](https://github.com/user-attachments/assets/42ba0a58-a0b6-4e13-829d-8edb8f1df322)
-
+  <img src="https://github.com/user-attachments/assets/9fa52ad4-bb80-4a75-8f16-a24a83a2dfd0" alt="Cell Analysis" width="600"/>
 </div>
 
-#### Gráficos de uma célula específica
-- **Q-Valor**: Mostra o Q-valor para cada ação (esquerda, direita, cima e baixo) para a célula selecionada
-- **Q-Valor ao longo dos episódios**: Mostra a evolução do Q-valor ao longo dos episódios para a célula selecionada
+## How It Works: The Q-Learning Algorithm
 
-<div align="center">
-  
-![cell](https://github.com/user-attachments/assets/9fa52ad4-bb80-4a75-8f16-a24a83a2dfd0)
+The project implements the **Q-learning** algorithm, which learns an action-value function, `Q(s, a)`, that estimates the total expected reward for taking action `a` in state `s`. The values are updated using the Bellman equation:
 
-</div>
+`Q(s, a) ← Q(s, a) + α * [r + γ * max_a' Q(s', a') - Q(s, a)]`
 
-## Algoritmo Q-Learning
+To balance the discovery of new strategies with the use of acquired knowledge, the agent uses an **ε-greedy policy**. With a probability of `ε`, it explores a random action; otherwise, it exploits the best-known action. The value of `ε` decays over time to favor exploitation as the agent becomes more experienced.
 
-O projeto implementa o algoritmo Q-learning clássico com os seguintes parâmetros:
+## Academic Context
 
-- **α (Alpha)**: Taxa de aprendizado - controla o quanto o agente aprende com cada experiência.
-- **γ (Gamma)**: Fator de desconto - determina a importância de recompensas futuras.
-- **ε (Epsilon)**: Taxa de exploração - balanceia exploração vs. explotação.
-- **Epsilon Decay**: Redução gradual da exploração ao longo do tempo.
+This project was developed as the final work for the **Data Visualization** course at **Fundação Getulio Vargas (FGV)**. The work aimed to apply visualization techniques to explain complex machine learning concepts and create an interactive interface for algorithm exploration.
 
-### Estratégia ε-greedy
-O agente usa uma estratégia epsilon-greedy para balancear:
-- **Exploração**: Tentar ações aleatórias para descobrir novas possibilidades.
-- **Explotação**: Usar o conhecimento atual para escolher a melhor ação conhecida.
+## Authors
 
-## Decisões de Design
+- [Gustavo Tironi](https://github.com/gtironi)
+- [Kauan Mariani](https://github.com/kauanmaf)
+- [Pedro Henrique Coterli](https://github.com/PedroPHC25)
 
-### Interface do Usuário
-- **Design Gaming-Inspired**: Visual moderno com elementos que remetem a jogos clássicos.
-- **Tipografia**: Combinação de fontes pixeladas para títulos e fontes limpas para texto.
-- **Paleta de Cores**: Esquema escuro com acentos em roxo para destacar elementos interativos.
+## Next Steps
 
-### Visualização de Dados
-- **Grid Responsivo**: Layout que se adapta a diferentes tamanhos de mundo.
-- **Feedback Visual Imediato**: Mudanças em tempo real refletem as modificações nos parâmetros.
-- **Tooltips Informativos**: Explicações contextuais para ajudar na compreensão.
+Future improvements could include:
 
-### Interatividade
-- **Tutorial Integrado**: Modal explicativo para novos usuários.
-- **Sugestões Contextuais**: Textos que aparecem baseados no estado atual da visualização.
-- **Controles Intuitivos**: Interface familiar similar a players de mídia.
+* Implementation of other RL algorithms (e.g., SARSA, DQN) for comparison.
+* Creation of more complex environments, with dynamic obstacles or non-deterministic scenarios.
+* Functionality to compare the performance of different algorithms side-by-side.
 
-## Desenvolvedores
+## License
 
-### Kauan Mariani Ferreira
-**GitHub**: [@kauanmaf](https://github.com/kauanmaf)
-
-**Principais Contribuições:**
-- Desenvolvimento do grid base utilizado em todo o projeto
-- Implementação do tutorial interativo
-- Configuração dos parâmetros do grid e do agente de aprendizado por reforço (RL)
-- Criação do pôster de apresentação
-- Definição da paleta de cores e estético da página
-
-### Pedro Henrique Coterli
-**GitHub**: [@PedroPHC25](https://github.com/PedroPHC25)
-
-**Principais Contribuições:**
-- Implementação do algoritmo de Q-learning
-- Gráfico de linha da taxa de sucessos ao longo dos episódios
-- Diagrama e gráfico de linhas dos Q-valores por célula
-- Textos dinâmicos de sugestões ao usuário sobre os parâmetros selecionados
-
-
-### Gustavo Tironi
-**GitHub**: [@gtironi](https://github.com/gtironi)
-
-**Principais Contribuições:**
-- Páginas teóricas (intuitiva, formal e q-leaning)
-- Demonstração da atualização da tabela q-learning
-- Página principal e organização do fluxo
-- Design e experiência do usuário
-- Relatório
-
-## Contexto Acadêmico
-
-Este projeto foi desenvolvido como trabalho final da disciplina de **Visualização de Dados** da **Fundação Getulio Vargas (FGV)**, com o objetivo de:
-
-- Aplicar técnicas de visualização de dados para explicar conceitos complexos;
-- Criar interfaces interativas para exploração de algoritmos de machine learning;
-- Demonstrar a aplicação prática de conceitos teóricos de RL.
-
-## Próximos Passos
-
-Possíveis melhorias futuras incluem:
-- Implementação de outros algoritmos de RL;
-- Ambientes mais complexos (gridworlds maiores, obstáculos dinâmicos);
-- Comparação entre diferentes algoritmos.
+This project is released under the [MIT License](https://opensource.org/licenses/MIT). You are free to use, modify, and distribute it, provided proper credit is given to the original authors.
